@@ -1021,8 +1021,11 @@ static int group_init(struct cpumask *mask)
 		pr_err("HW configuration not supported\n");
 		return -EINVAL;
 	}
+
+    //"gambiarra"(hack) to make msmhotplug work on this divice
     f->is_big_cluster = 1;
-    f->min_cpus = 0;
+    //end of "gambiarra"
+    f->min_cpus = 1;
 	f->max_cpus = f->num_cpus;
 	f->need_cpus  = f->num_cpus;
 	f->avail_cpus  = f->num_cpus;
