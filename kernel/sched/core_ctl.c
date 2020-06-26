@@ -990,8 +990,8 @@ void disable_core_control(bool disable)
 	struct cpu_data *state;
 
 	state = &per_cpu(cpu_state, 0);
-	if (state->inited && (state->disabled != disable))
-		state->disabled = disable;
+	if (state->inited && (state->disabled != 1))
+		state->disabled = 1;
 
 
 }
@@ -1022,7 +1022,7 @@ static int group_init(struct cpumask *mask)
 		return -EINVAL;
 	}
     f->is_big_cluster = 1;
-    f->min_cpus = 1;
+    f->min_cpus = 0;
 	f->max_cpus = f->num_cpus;
 	f->need_cpus  = f->num_cpus;
 	f->avail_cpus  = f->num_cpus;
