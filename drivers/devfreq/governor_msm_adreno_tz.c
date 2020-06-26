@@ -716,7 +716,7 @@ static void gpu_unboost_worker(struct work_struct *work)
 
 	/* Use lowest frequency */
 	devfreq->min_freq =
-		devfreq->profile->freq_table[devfreq->profile->max_state + 1];
+		devfreq->profile->freq_table[devfreq->profile->max_state - 1];
 
 	gpu_update_devfreq(devfreq);
 
